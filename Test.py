@@ -1,7 +1,7 @@
 import os, re, io, time, json, asyncio, random, aiohttp
 from urllib.parse import quote_plus
 from pymongo import MongoClient
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import RPCError, Forbidden
 from youtubesearchpython.__future__ import VideosSearch
@@ -64,10 +64,10 @@ async def get_api_link(vidid):
     return None
 
 def get_queue(cid):
-    return col.find_one({"chat_id":cid}) or {"chat_id":cid,"queue":[],"now":None}
+    return col.find_one({"chat_id": cid}) or {"chat_id": cid, "queue": [], "now": None}
 
 def save_queue(q):
-    col.update_one({"chat_id":q["chat_id"]},{"$set":q},upsert=True)
+    col.update_one({"chat_id": q["chat_id"]}, {"$set": q}, upsert=True)
 
 async def background_download_tme(link, path):
     try:
@@ -79,8 +79,6 @@ async def background_download_tme(link, path):
         print(f"🛠 Debug: Background downloaded {link} to {path}")
     except Exception as e:
         print("BG download:", e)
-
-# Image helper functions remain unchanged...
 
 # ---------------- PLAYER ----------------
 async def join_and_stream(cid, link):
@@ -109,7 +107,7 @@ async def play_next(cid):
     req, req_id = song["req"], song.get("req_id")
     await join_and_stream(cid, link)
     asyncio.create_task(background_download_tme(link, f"downloads/{int(time.time())}_{random.randint(100,999)}.mp3"))
-    comp = await make_thumb(thumb, req_id)
+    comp = await make_thumb(thumb, req_id) if 'make_thumb' in globals() else None
     photo = comp or thumb or "https://i.ibb.co/4pDNDk1/music.jpg"
     msg = await bot.send_photo(
         cid,
@@ -120,11 +118,7 @@ async def play_next(cid):
             [InlineKeyboardButton("📜 Queue", callback_data=f"queue_{cid}")]
         ])
     )
-    data["now"] = {
-        "msg": msg.id,
-        "start": time.time(),
-        "dur": sec(dur)
-    }
+    data["now"] = {"msg": msg.id, "start": time.time(), "dur": sec(dur)}
     save_queue(data)
     asyncio.create_task(update_progress(cid))
     print(f"🛠 Debug: Now playing: {title} in chat {cid}")
@@ -148,7 +142,8 @@ async def update_progress(cid):
                 n["msg"],
                 caption=f"🎶 Playing… {sec_to_time(el)} / {sec_to_time(dur)}"
             )
-        except RPCError: pass
+        except RPCError:
+            pass
 
 # ---------------- COMMANDS ----------------
 @bot.on_message(filters.command("start"))
@@ -166,8 +161,8 @@ async def play_cmd(_, m: Message):
     await m.reply_chat_action("typing")
     try:
         vidid, title, duration, thumb = await youtube_search(query)
-    except Exception:
-        print(f"🛠 Debug: YouTube search failed for query: {query}")
+    except Exception as e:
+        print(f"🛠 Debug: YouTube search failed for query: {query}", e)
         await m.reply_text("❌ YouTube search failed.")
         return
     link = await get_api_link(vidid)
@@ -226,12 +221,12 @@ async def stop_cmd(_, m: Message):
 # ---------------- STARTUP ----------------
 async def main():
     print("🛠 Debug: Starting Bot and User client...")
-    await bot.start()
-    print(f"✅  Bot started! Username: {(await bot.get_me()).username}")
     await user.start()
     print(f"✅  User (StringSession) started! Username: {(await user.get_me()).username}")
     await vc.start()
     print("✅  PyTgCalls started successfully")
+    await bot.start()
+    print(f"✅  Bot started! Username: {(await bot.get_me()).username}")
 
     if OWNER_ID:
         try:
@@ -240,9 +235,7 @@ async def main():
             print("🛠 Debug: Failed to send start message to owner:", e)
 
     print("🛠 Debug: Entering idle mode, waiting for commands...")
-    from pyrogram import idle
     await idle()
-
 
 if __name__ == "__main__":
     try:
