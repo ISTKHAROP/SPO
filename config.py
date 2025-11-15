@@ -9,7 +9,7 @@ from pyrogram import filters
 load_dotenv()
 # ------------------------------------
 # -----------------------------------------------------
-API_ID = int(getenv("API_ID", "0"))
+API_ID = int(getenv("API_ID", "16457832"))
 API_HASH = getenv("API_HASH", "3030874d0befdb5d05597deacc3e83ab")
 # ------------------------------------------------------
 BOT_TOKEN = getenv("BOT_TOKEN", "7985004218:AAH8kg8aHfg-_7XFTwHaswRliUBy-pDn6bU")
