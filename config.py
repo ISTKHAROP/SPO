@@ -9,14 +9,14 @@ from pyrogram import filters
 load_dotenv()
 # ------------------------------------
 # -----------------------------------------------------
-API_ID = int(getenv("API_ID", "0"))
-API_HASH = getenv("API_HASH", "0")
+API_ID = int(getenv("API_ID", "29869035"))
+API_HASH = getenv("API_HASH", "e7543eeb90a3209df9ee6b26aa84f994")
 # ------------------------------------------------------
-BOT_TOKEN = getenv("BOT_TOKEN", "0")
+BOT_TOKEN = getenv("BOT_TOKEN", "8321767632:AAHL0hb95c68tGOdS8wmbywsKdj8WTNVTQg")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","@UTTAM470")
+OWNER_USERNAME = getenv("OWNER_USERNAME","@Itzz_Istkhar")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "BABY_MUSIC09_BOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "jullyMUsicBOT")
 # --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME" , "╼⃝𖠁 𝐁ʌʙʏ ꭙ 𝐌ᴜsɪᴄ 𖠁⃝╾")
 # ---------------------------------------------------------
@@ -39,10 +39,10 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
-LOGGER_ID = int(getenv("LOGGER_ID", "0"))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002060224175"))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-OWNER_ID = int(getenv("OWNER_ID", "0"))
+OWNER_ID = int(getenv("OWNER_ID", "7980630836"))
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
 # config.py
@@ -120,7 +120,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 # ------------------------------------
 # ------------------------------------
 # ------------------------------------
-STRING1 = getenv("STRING_SESSION", "")
+STRING1 = getenv("STRING_SESSION", "BQHBWlEAFO9Um_XTp7x62WN05UXCtlbipdkA2_eyxAQp1zmTMBMx7o7TnmxRFKR87asizQwo99rSzsTMc8orKwxAmimNqv7kmqtZVeujIWuajKrUCBhMoyC2sdBJo_hD4KXuSXvPL6SAuhcsTCveCJdKv5OM4PaEFh9Q4-CscQVC6j4CCI9uyBbxCorX80Wl3JJDcjgVlWsRx5fRNJO7Vlmh65Sj_EfrDAOMcdyU1Z4xLO9IrtzLxdaHySwm-y15fgP_AtmJguP2Z6XJMkIcTqxQg_UCfJtOPb9MJd1T5Ff0ixHNXL2NL_AHP-96VS8XQsWLetgoWjleGxnxClJ5ylaEprWJAwAAAAHIPzeFAA")
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
