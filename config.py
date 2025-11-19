@@ -12,7 +12,7 @@ load_dotenv()
 API_ID = int(getenv("API_ID", "29869035"))
 API_HASH = getenv("API_HASH", "e7543eeb90a3209df9ee6b26aa84f994")
 # ------------------------------------------------------
-BOT_TOKEN = getenv("BOT_TOKEN", "8321767632:AAHL0hb95c68tGOdS8wmbywsKdj8WTNVTQg")
+BOT_TOKEN = getenv("BOT_TOKEN", "8226109834:AAFn1hkhFeKINZZntRMFRjYjnjCXAgF6uIE")
 # -------------------------------------------------------
 OWNER_USERNAME = getenv("OWNER_USERNAME","@Itzz_Istkhar")
 # --------------------------------------------------------
@@ -30,7 +30,7 @@ API_URL = "https://BabyAPI.Pro"
 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Krishteam:krishteam@cluster0.tukt2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
@@ -120,7 +120,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 # ------------------------------------
 # ------------------------------------
 # ------------------------------------
-STRING1 = getenv("STRING_SESSION", "BQHBWlEAFO9Um_XTp7x62WN05UXCtlbipdkA2_eyxAQp1zmTMBMx7o7TnmxRFKR87asizQwo99rSzsTMc8orKwxAmimNqv7kmqtZVeujIWuajKrUCBhMoyC2sdBJo_hD4KXuSXvPL6SAuhcsTCveCJdKv5OM4PaEFh9Q4-CscQVC6j4CCI9uyBbxCorX80Wl3JJDcjgVlWsRx5fRNJO7Vlmh65Sj_EfrDAOMcdyU1Z4xLO9IrtzLxdaHySwm-y15fgP_AtmJguP2Z6XJMkIcTqxQg_UCfJtOPb9MJd1T5Ff0ixHNXL2NL_AHP-96VS8XQsWLetgoWjleGxnxClJ5ylaEprWJAwAAAAHIPzeFAA")
+STRING1 = getenv("STRING_SESSION", "BQHHw-sAi5vKHvisDmy-8VTX1DvljtEFggYjF_2gH0cD5txReXzloJSFDWAuEpCS7qZ8f3nc3GJr76_f8CoAm_HxLwWUX1DinB2ajFXgUOV67bUTMFG_imX_DD9O2v-I4W4Gmfq7VyqI2ZbwYnyh5MrQ5dSaiOPxfGT2Sv16wkduV_gxG6Au08jtzmqagKcWSUxZWjUkjjsnkLORn2HisJTR4BP9on3s-MTwQS2j0SfM3gB1YFWd59HaIcMq537Blayo23u4P2HuC-CA8QagqlcmxMrjFBU_9meiRexbINhg-oQctAJftPneNRTaaNu4EJhvWyqu-4XizqdpJcL24Mw3QTz9SQAAAAHoy4nOAA")
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
